@@ -1,0 +1,88 @@
+-- Use the appropriate database
+USE your_database_name;
+
+-- Create a sales data table for analysis
+CREATE TABLE IF NOT EXISTS SalesData (
+    TransactionID INT PRIMARY KEY,
+    CustomerID INT,
+    TransactionDate TIMESTAMP,
+    TransactionAmount FLOAT,
+    PaymentMethod VARCHAR(50),
+    Quantity INT,
+    DiscountPercent FLOAT,
+    City VARCHAR(100),
+    StoreType VARCHAR(50),
+    CustomerAge INT,
+    CustomerGender VARCHAR(50),
+    LoyaltyPoints INT,
+    ProductName VARCHAR(100),
+    Region VARCHAR(50),
+    Returned VARCHAR(10),
+    FeedbackScore INT,
+    ShippingCost FLOAT,
+    DeliveryTimeDays INT,
+    IsPromotional VARCHAR(10)
+);
+
+-- Aggregate insights
+
+-- Total sales amount and average transaction amount
+SELECT 
+    COUNT(TransactionID) AS TotalTransactions,
+    SUM(TransactionAmount) AS TotalSales,
+    AVG(TransactionAmount) AS AvgTransactionAmount
+FROM SalesData;
+
+-- Sales distribution by payment method
+SELECT 
+    PaymentMethod, 
+    COUNT(TransactionID) AS TransactionCount,
+    SUM(TransactionAmount) AS TotalSales
+FROM SalesData
+GROUP BY PaymentMethod;
+
+-- Sales by city and store type
+SELECT 
+    City, 
+    StoreType, 
+    COUNT(TransactionID) AS TransactionCount, 
+    SUM(TransactionAmount) AS TotalSales
+FROM SalesData
+GROUP BY City, StoreType;
+
+-- Customer demographic insights
+SELECT 
+    CustomerGender, 
+    AVG(CustomerAge) AS AvgAge,
+    COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM SalesData
+GROUP BY CustomerGender;
+
+-- Feedback score distribution
+SELECT 
+    FeedbackScore, 
+    COUNT(TransactionID) AS TransactionCount
+FROM SalesData
+GROUP BY FeedbackScore;
+
+-- Promotional vs Non-promotional sales
+SELECT 
+    IsPromotional, 
+    COUNT(TransactionID) AS TransactionCount,
+    SUM(TransactionAmount) AS TotalSales
+FROM SalesData
+GROUP BY IsPromotional;
+
+-- Returned product analysis
+SELECT 
+    Returned, 
+    COUNT(TransactionID) AS TransactionCount,
+    SUM(TransactionAmount) AS TotalSales
+FROM SalesData
+GROUP BY Returned;
+
+-- Shipping and delivery insights
+SELECT 
+    AVG(ShippingCost) AS AvgShippingCost,
+    AVG(DeliveryTimeDays) AS AvgDeliveryTime
+FROM SalesData;
