@@ -55,6 +55,78 @@ SELECT
 FROM SalesData
 GROUP BY Returned;
 
+--Payment Method by City Wise (Including Unique Customers)
+SELECT 
+    City, 
+    PaymentMethod, 
+    COUNT(DISTINCT CustomerID) AS UniqueCustomers,
+    COUNT(*) AS TotalTransactions
+FROM 
+    SalesData
+GROUP BY 
+    City, PaymentMethod
+ORDER BY 
+    City;
+
+--City-Wise Return Rate, Delivery Time, and Loyalty Points
+SELECT 
+    City, 
+    ROUND(SUM(CASE WHEN Returned = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS ReturnRatePercentage, 
+    AVG(DeliveryTimeDays) AS AvgDeliveryTime, 
+    SUM(LoyaltyPoints) AS TotalLoyaltyPoints
+FROM 
+    SalesData
+GROUP BY 
+    City;
+
+--Product-Wise Return Rate (Accounting for Unique Customer Returns)
+SELECT 
+    ProductName, 
+    ROUND(SUM(CASE WHEN Returned = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) , 2) AS ReturnRatePercentage
+FROM 
+    SalesData
+GROUP BY 
+    ProductName
+ORDER BY 
+    ReturnRatePercentage DESC;
+
+--Product-Wise Orders and Transaction Amount (Based on Unique Customer Purchases)
+SELECT 
+    ProductName, 
+    COUNT(DISTINCT CustomerID) AS UniqueCustomers, 
+    COUNT(*) AS TotalOrders, 
+    SUM(TransactionAmount) AS TotalTransactionAmount
+FROM 
+    SalesData
+GROUP BY 
+    ProductName
+ORDER BY 
+    TotalOrders DESC;
+
+--Average Orders per Customer
+SELECT 
+    CustomerID, 
+    COUNT(*) AS TotalOrders, 
+    AVG(TransactionAmount) AS AverageOrderAmount
+FROM 
+    SalesData
+GROUP BY 
+    CustomerID
+ORDER BY 
+    TotalOrders DESC;
+
+--Total Amount Spent per Customer
+SELECT 
+    CustomerID, 
+    SUM(TransactionAmount) AS TotalAmountSpent
+FROM 
+    SalesData
+GROUP BY 
+    CustomerID
+ORDER BY 
+    TotalAmountSpent DESC;
+
+
 -- Shipping and delivery insights
 SELECT 
     AVG(ShippingCost) AS AvgShippingCost,
