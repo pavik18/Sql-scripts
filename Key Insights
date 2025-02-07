@@ -1,18 +1,47 @@
-* First item
-* Second item
-* Third item
-* First item
-* Second item
-* Third item
-* First item
-* Second item
-* Third item
 
-* First item
-* Second item
-* Third item
+Key Metrics & Insights
 
-* First item
-* Second item
-* Third item
+Overall Sales Performance
+  * Total Transactions: 500,000
+  * Total Sales Amount: ₹10,202,662,960.19
+  * Average Transaction Amount: ₹20,405.33
 
+Sales Distribution by Payment Method
+  * Cash: 112,625 transactions | ₹2.56B sales
+  * Credit Card: 111,843 transactions | ₹2.52B sales
+  * Debit Card: 113,015 transactions | ₹2.55B sales
+  * UPI: 112,517 transactions | ₹2.53B sales
+
+Sales by City & Store Type
+Top Performing Cities (Sales Above ₹500M):
+  * Ahmedabad: ₹1.02B (Online & In-Store)
+  * Bangalore: ₹1.02B
+  * Delhi: ₹1.02B
+  * Mumbai: ₹1.01B
+  * Lucknow: ₹1.02B
+  * Kolkata: ₹1.02B
+Online & In-Store Sales Are Almost Equal in Every City
+
+Customer Demographics
+  * Female Customers: Avg. Age 46.02 | 45,864 unique customers
+  * Male Customers: Avg. Age 45.99 | 45,793 unique customers
+  * Other Gender Customers: Avg. Age 45.97 | 45,903 unique customers
+
+Feedback Score Analysis
+  * Most Common Feedback Score: 2 (100,237 transactions)
+  * Least Common Feedback Score: 3 (99,645 transactions)
+  * Evenly Spread Scores from 1 to 5
+
+Promotional vs Non-Promotional Sales
+  * Promotional Sales: 249,315 transactions | ₹5.09B sales
+  * Non-Promotional Sales: 250,685 transactions | ₹5.10B sales
+Almost Equal Distribution of Sales Between Promotional & Non-Promotional
+
+Returned Products Analysis
+  * Returned Transactions: 249,467 (₹5.09B sales)
+  * Non-Returned Transactions: 250,533 (₹5.10B sales)
+Returned & Non-Returned Sales Are Almost Equal
+
+Shipping & Delivery Insights
+  * Average Shipping Cost: ₹397.30
+  * Average Delivery Time: 5.24 days
