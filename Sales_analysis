@@ -1,7 +1,7 @@
 -- Aggregate insights
 
 -- Total sales amount and average transaction amount
-SELECT 
+SELECT
     COUNT(TransactionID) AS TotalTransactions,
     SUM(TransactionAmount) AS TotalSales,
     AVG(TransactionAmount) AS AvgTransactionAmount
